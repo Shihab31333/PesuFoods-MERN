@@ -1,0 +1,146 @@
+.cart-container {
+    max-width: 600px; /* Fixed width for better layout */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+.cart-items {
+    margin: 20px 0; /* Added margin for spacing */
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 0;
+    transition: background-color 0.2s ease;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item:hover {
+    background-color: #f9f9f9;
+}
+
+.item-details {
+    flex-grow: 1;
+    margin-left: 15px; /* Added space between image and details */
+}
+
+.item-title {
+    font-weight: bold;
+    color: #2980b9;
+}
+
+.item-price, .item-quantity {
+    margin: 5px 0;
+}
+
+.cart-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.item-actions {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+}
+
+button {
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-increment {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-decrement {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-remove {
+    background-color: #ffc107;
+    color: white;
+}
+
+.total {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+}
+
+.clear-cart {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    background-color: #dc3545;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.checkout-button {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    background-color: #28a745;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.modal-btn {
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-btn:first-child {
+    background-color: #28a745;
+    color: white;
+}
+
+.modal-btn:last-child {
+    background-color: #dc3545;
+    color: white;
+}

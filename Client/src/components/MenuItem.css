@@ -1,0 +1,72 @@
+.menu-item {
+    background-color: #ebe9e9; /* Background color for each item */
+    border: 1px solid #e0e0e0; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 15px; /* Space around each item */
+    padding: 20px; /* Inner padding */
+    text-align: center; /* Centered text */
+    transition: transform 0.2s; /* Smooth scaling on hover */
+    flex: 1; /* Allow items to grow equally */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Arrange children in a column */
+    justify-content: space-between; /* Even spacing between elements */
+}
+
+.menu-item-image {
+    width: 270px; /* Full width */
+    height: 300px; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners for image */
+    max-height: 200px; /* Limit height for uniformity */
+    object-fit: cover; /* Cover the entire image area */
+}
+
+.menu-item-name {
+    font-size: 1.5em; /* Larger font size for item name */
+    color: #333; /* Dark gray color */
+    margin: 10px 0; /* Space above and below the name */
+}
+
+.menu-item-price {
+    font-size: 1.25em; /* Medium font size for price */
+    color: #777; /* Medium gray color for price */
+    margin: 10px 0; /* Space above and below the price */
+}
+
+.add-to-cart-container {
+    margin-top: auto; /* Push the button to the bottom of the card */
+}
+
+.add-to-cart-button {
+    background-color: #007bff; /* Bootstrap primary blue */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners for button */
+    padding: 10px 15px; /* Padding inside button */
+    font-size: 1em; /* Standard font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.add-to-cart-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.success-message {
+    color: #28a745; /* Bootstrap success green */
+    margin-top: 10px; /* Space above success message */
+    font-size: 0.9em; /* Smaller font size for message */
+}
+
+/* Flex container to arrange items */
+.menu-items-container {
+    display: flex; /* Use flexbox */
+    flex-wrap: wrap; /* Allow items to wrap to next row */
+    justify-content: space-between; /* Even spacing */
+}
+
+/* Ensure each item takes equal space */
+.menu-item {
+    flex: 1 1 calc(25% - 30px); /* Four items per row with spacing */
+    box-sizing: border-box; /* Include padding and border in total width */
+}

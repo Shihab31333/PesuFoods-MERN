@@ -1,0 +1,78 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../../Users/Shihab/OneDrive/LList"
+		},
+		{
+			"path": "../../../../../../Users/Shihab/OneDrive/Desktop/JStutorial"
+		},
+		{
+			"path": "../../../../../../Users/Shihab/OneDrive/Desktop/HTML Tutorial/ProjectHTML"
+		},
+		{
+			"path": "../../../../../../Users/Shihab/OneDrive/Desktop/Kusuma_Mam/singli_ll"
+		},
+		{
+			"path": "../../../../../../Users/Shihab/OneDrive/HTISA/unit 1 web tech"
+		},
+		{
+			"path": "../../../../../../Users/Shihab/OneDrive/Desktop/Kusuma_Mam/SLL isa"
+		},
+		{
+			"path": "../../../../../React Coding/myapp"
+		},
+		{
+			"path": "../../../../../todo app"
+		},
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../../../Users/Shihab/OneDrive/Desktop/Ecommerce"
+		},
+		{
+			"path": "../../../../../../Users/Shihab/OneDrive/Desktop/CanteenWebTech"
+		},
+		{
+			"path": "../../../../../../Users/Shihab/OneDrive/Desktop/CanteenWebTech/foodappp/simple-ecart-master"
+		},
+		{
+			"path": "../../../../../../Users/Shihab/OneDrive/Desktop/SV/FinalProject"
+		},
+		{
+			"path": "../../../../../../Users/Shihab/OneDrive/Desktop/New folder/NodeJS"
+		},
+		{
+			"path": "../../../../../../Users/Shihab/OneDrive/Desktop/MathsPractical"
+		},
+		{
+			"path": "../../../../../../Users/Shihab/OneDrive/Desktop/loginPage"
+		},
+		{
+			"path": "../../../../../../Users/Shihab/OneDrive/Desktop/javascriptProject"
+		},
+		{
+			"path": "../../../../../../Users/Shihab/OneDrive/Desktop/MernStack Full"
+		},
+		{
+			"path": "../../../../../../Users/Shihab/Downloads/Registration_Login_Form_MERN_Stack-main/Reg_and_Login"
+		},
+		{
+			"path": "../../../../../../Users/Shihab/OneDrive/Desktop/JWT -NODE"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"array": "c",
+			"string": "c",
+			"ratio": "c",
+			"system_error": "c",
+			"functional": "c",
+			"tuple": "c",
+			"type_traits": "c",
+			"utility": "c",
+			"PES1UG23CS546_1.C": "cpp"
+		},
+		"liveServer.settings.multiRootWorkspaceName": "javascriptProject"
+	}
+}

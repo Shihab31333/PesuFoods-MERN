@@ -1,0 +1,47 @@
+.menu-items {
+  display: flex; /* Flexbox for side-by-side alignment */
+  flex-wrap: wrap; /* Wrap items to a new row if they overflow */
+  justify-content: space-between; /* Add space between items */
+  margin-top: 20px;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex: 1 0 30%; /* This ensures that each menu item takes up roughly 30% of the width */
+  max-width: 30%; /* Prevent items from growing too large */
+  box-sizing: border-box; /* Ensure padding and borders don't affect the width */
+}
+
+.menu-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  transition: box-shadow 0.3s;
+  width: 100%; /* Ensures the card takes full width of the container */
+}
+
+.menu-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.meal-img {
+  width: 100%; /* Ensures the image scales within the card */
+  height: auto;
+  border-radius: 8px;
+}
+
+.add-to-cart-button {
+  margin-top: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+}
+
+.add-to-cart-button:hover {
+  background-color: #218838;
+}
+
+

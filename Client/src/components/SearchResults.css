@@ -1,0 +1,54 @@
+.menu-items {
+    display: flex; /* Flexbox for side-by-side alignment */
+    flex-wrap: wrap; /* Wrap items to a new row if they overflow */
+    justify-content: space-between; /* Add space between items */
+    margin-top: 20px;
+  }
+  
+  .menu-item {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex: 1 0 21%; /* Each menu item takes up roughly 21% of the width to fit 4 in a row */
+    max-width: 21%; /* Ensure that a maximum of 4 items fit in the row */
+    box-sizing: border-box; /* Ensure padding and borders don't affect the width */
+  }
+  
+  .menu-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    transition: box-shadow 0.3s;
+    width: 100%; /* Ensure the card takes full width of the container */
+    background-color: #fff; /* Set background color for the card */
+  }
+  
+  .menu-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+  }
+  
+  .meal-img {
+    width: 100%; /* Image takes full width of the card */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners for the image */
+  }
+  
+  .add-to-cart-button {
+    margin-top: 10px;
+    background-color: #28a745; /* Green background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 15px; /* Padding for button */
+    border-radius: 5px; /* Rounded corners for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+  }
+  
+  .add-to-cart-button:hover {
+    background-color: #218838; /* Darker green on hover */
+  }
+
+  body { /* Light gray background for the body */
+    margin: 0; /* Remove default body margin */
+    padding: 20px; /* Padding for the body */
+  }
