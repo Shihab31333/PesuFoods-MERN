@@ -4,19 +4,30 @@ import { BiCart } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { useCart } from 'react-use-cart';
 import './Header.css';
+import { Toast } from 'react-bootstrap';
+
 
 const Header = ({ isAuthenticated, onLogout, onSearch }) => {
     const { isEmpty, totalItems } = useCart();
     const [searchTerm, setSearchTerm] = useState('');
 
     // Show an alert when authentication state changes
-    useEffect(() => {
-        if (isAuthenticated) {
-            alert('User logged in');
-        } else {
-            alert('User not yet logged in');
-        }
-    }, [isAuthenticated]);
+    // useEffect(() => {
+    //     if (isAuthenticated) {
+    //         alert('User logged in');
+    //     } else {
+    //         alert('User not yet logged in');
+    //     }
+    // }, [isAuthenticated]);
+
+    {showToast && (
+      <Toast onClose={() => setShowToast(false)} show={true} delay={3000} autohide>
+        <Toast.Body>{isAuthenticated ? 'Logged in!' : 'Not logged in yet'}</Toast.Body>
+      </Toast>
+    )}
+
+
+    //changee
 
     const handleSearch = (e) => {
         e.preventDefault();
