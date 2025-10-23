@@ -20,11 +20,16 @@ const Header = ({ isAuthenticated, onLogout, onSearch }) => {
     //     }
     // }, [isAuthenticated]);
 
-    {showToast && (
-      <Toast onClose={() => setShowToast(false)} show={true} delay={3000} autohide>
-        <Toast.Body>{isAuthenticated ? 'Logged in!' : 'Not logged in yet'}</Toast.Body>
-      </Toast>
-    )}
+    // {showToast && (
+    //   <Toast onClose={() => setShowToast(false)} show={true} delay={3000} autohide>
+    //     <Toast.Body>{isAuthenticated ? 'Logged in!' : 'Not logged in yet'}</Toast.Body>
+    //   </Toast>
+    // )}
+
+    useEffect(() => {
+      console.log(isAuthenticated ? 'User logged in' : 'User not logged in');
+    }, [isAuthenticated]);
+
 
 
     //changee
