@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { CartProvider } from 'react-use-cart';
+import CartProvider from './components/CartProvider';
 import Home from './Pages/Home';
 import CanteenDetails from './Pages/CanteenDetails';
 import Cart from './components/Cart';
@@ -9,11 +9,11 @@ import SignIn from './Pages/SignIn';
 import SignUp from './Pages/SignUp';
 import MyAccount from './Pages/MyAccount';
 import SearchResults from './components/SearchResults';
+import { api } from './api';
 
-import canteenData from './Data/Canteen1items';
 
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(() => Boolean(localStorage.getItem('token')));
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -23,6 +23,7 @@ const App = () => {
   };
 
   const handleLogout = () => {
+    localStorage.removeItem('token');
     setIsAuthenticated(false);
   };
 
@@ -30,21 +31,10 @@ const App = () => {
   const handleSearch = (searchTerm) => {
     setLoading(true);
 
-    const results = [];
-    canteenData.canteens.forEach(canteen => {
-      const filteredItems = canteen.menuItems.filter(item =>
-        item.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      if (filteredItems.length > 0) {
-        filteredItems.forEach(item => {
-          results.push({ ...item, canteenName: canteen.name });
-        });
-      }
-    });
-
-    setSearchResults(results);
-    setLoading(false);
-    navigate('/search');
+    api.search(searchTerm)
+      .then(({ items }) => { setSearchResults(items); navigate('/search'); })
+      .catch(() => setSearchResults([]))
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -52,7 +42,7 @@ const App = () => {
       <Header isAuthenticated={isAuthenticated} onLogout={handleLogout} onSearch={handleSearch} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/canteen/:canteenId" element={<CanteenDetails data={canteenData} />} />
+        <Route path="/canteen/:canteenId" element={<CanteenDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/signin" element={<SignIn onLogin={handleLogin} />} />
         <Route path="/register" element={<SignUp />} />

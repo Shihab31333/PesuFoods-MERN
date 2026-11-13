@@ -1,77 +1,23 @@
 import React, { useState } from 'react';
-import './SignUp.css'; // Add this line at the top
+import { Link, useNavigate } from 'react-router-dom';
+import './SignUp.css';
+import { api } from '../api';
 
 const SignUp = () => {
-    const [name, setName] = useState('');
-    const [usermail, setUsermail] = useState('');
-    const [password, setPassword] = useState('');
+    const [form, setForm] = useState({ name: '', usermail: '', password: '' });
     const [error, setError] = useState('');
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await fetch('http://localhost:5000/signup', { // Use absolute URL
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ name, usermail, password }),
-            });
-            if (!response.ok) {
-                const { error: errMsg } = await response.json();
-                throw new Error(errMsg || 'User already exists or another error');
-            }
-            // Handle successful signup, e.g., redirect to login
-            window.location.href = '/login';
-        } catch (error) {
-            setError(error.message);
-        }
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
+    const handleSubmit = async (event) => {
+        event.preventDefault(); setLoading(true); setError('');
+        try { await api.signup(form); navigate('/signin'); } catch (err) { setError(err.message); } finally { setLoading(false); }
     };
-
-    return (
-        <div className="form-container">
-            <h2>Sign Up</h2>
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="name">Name</label>
-                    <input
-                        type="text"
-                        id="name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        placeholder="Enter your name"
-                        required
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="usermail">User ID</label>
-                    <input
-                        type="email"
-                        id="usermail"
-                        value={usermail}
-                        onChange={(e) => setUsermail(e.target.value)}
-                        placeholder="Enter your email"
-                        required
-                        autoComplete="off"
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Password"
-                        required
-                    />
-                </div>
-                <button type="submit" className="submit-btn">Sign Up</button>
-                {error && <p className="error">{error}</p>}
-            </form>
-            <p>Already have an account? <a href='/signin'>Sign In</a></p>
-        </div>
-    );
+    return <div className="form-container"><h2>Sign Up</h2><form onSubmit={handleSubmit}>
+        <div className="form-group"><label htmlFor="name">Name</label><input id="name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required /></div>
+        <div className="form-group"><label htmlFor="usermail">User ID</label><input type="email" id="usermail" value={form.usermail} onChange={(e) => setForm({ ...form, usermail: e.target.value })} required /></div>
+        <div className="form-group"><label htmlFor="password">Password</label><input type="password" id="password" minLength="6" value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} required /></div>
+        <button type="submit" className="submit-btn" disabled={loading}>{loading ? 'Creating account...' : 'Sign Up'}</button>{error && <p className="error">{error}</p>}
+    </form><p>Already have an account? <Link to="/signin">Sign In</Link></p></div>;
 };
 
 export default SignUp;

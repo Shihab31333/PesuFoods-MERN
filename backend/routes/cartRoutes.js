@@ -1,0 +1,12 @@
+const express = require('express');
+const { requireAuth } = require('../middleware/authMiddleware');
+const asyncHandler = require('../utils/asyncHandler');
+const controller = require('../controllers/cartController');
+const router = express.Router();
+router.use(requireAuth);
+router.get('/', asyncHandler(controller.getCart));
+router.post('/items', asyncHandler(controller.addItem));
+router.patch('/items/:menuItemId', asyncHandler(controller.updateItem));
+router.delete('/items/:menuItemId', asyncHandler(controller.removeItem));
+router.delete('/', asyncHandler(controller.clearCart));
+module.exports = router;

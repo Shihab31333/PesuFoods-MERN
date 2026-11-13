@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Container, Navbar, Button, Form, FormControl } from 'react-bootstrap';
 import { BiCart } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
-import { useCart } from 'react-use-cart';
+import { useCartContext } from './CartProvider';
 import './Header.css';
-import { Toast } from 'react-bootstrap';
 
 
 const Header = ({ isAuthenticated, onLogout, onSearch }) => {
-    const { isEmpty, totalItems } = useCart();
+    const { items, totalItems } = useCartContext();
     const [searchTerm, setSearchTerm] = useState('');
 
     // Show an alert when authentication state changes
@@ -75,7 +74,7 @@ const Header = ({ isAuthenticated, onLogout, onSearch }) => {
                         )}
                         <Link to="/cart" className="nav-link cart-icon">
                             <BiCart size="1.8rem" />
-                            {!isEmpty && <span className="cart-count">{totalItems}</span>}
+                            {!!items.length && <span className="cart-count">{totalItems}</span>}
                             <span>&nbsp;Cart</span>
                         </Link>
                     </div>

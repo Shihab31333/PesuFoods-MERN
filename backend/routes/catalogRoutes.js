@@ -1,0 +1,10 @@
+const express = require('express');
+const asyncHandler = require('../utils/asyncHandler');
+const controller = require('../controllers/catalogController');
+const router = express.Router();
+router.get('/search', asyncHandler(controller.searchMenu));
+router.get('/canteens', asyncHandler(controller.listCanteens));
+router.get('/canteens/:id', asyncHandler(controller.getCanteen));
+router.get('/canteens/:canteenId/menu', asyncHandler(controller.listMenu));
+router.get('/menu/:id', asyncHandler(controller.getMenuItem));
+module.exports = router;
