@@ -59,13 +59,4 @@ The cart stores a single canteen reference and rejects additions from other cant
 
 Payment is deliberately simulated. Checkout reserves stock and creates an order with `paymentStatus: SIMULATED`; no payment provider or real money movement is involved.
 
-## Testing
 
-```powershell
-cd backend
-npm test
-
-cd ..\Client
-npm test -- --watchAll=false
-npm run build
-```
